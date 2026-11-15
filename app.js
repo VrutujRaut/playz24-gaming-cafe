@@ -67,10 +67,15 @@ navToggle?.addEventListener('click', () => {
 });
 
 const bookingSubmit = bookingForm?.querySelector('button[type="submit"]');
+const rateTable = document.querySelector('.rate-table-wrap');
 if (mobileBook && bookingSubmit) {
   const syncMobileBook = () => {
-    const bounds = bookingSubmit.getBoundingClientRect();
-    mobileBook.classList.toggle('is-hidden', bounds.bottom > 0 && bounds.top < window.innerHeight);
+    const submitBounds = bookingSubmit.getBoundingClientRect();
+    const mobileBounds = mobileBook.getBoundingClientRect();
+    const rateBounds = rateTable?.getBoundingClientRect();
+    const submitVisible = submitBounds.bottom > 0 && submitBounds.top < window.innerHeight;
+    const ratesObscured = rateBounds && rateBounds.bottom > mobileBounds.top && rateBounds.top < mobileBounds.bottom;
+    mobileBook.classList.toggle('is-hidden', submitVisible || ratesObscured);
   };
   window.addEventListener('scroll', syncMobileBook, { passive: true });
   window.addEventListener('resize', syncMobileBook);
