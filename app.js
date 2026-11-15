@@ -67,11 +67,14 @@ navToggle?.addEventListener('click', () => {
 });
 
 const bookingSubmit = bookingForm?.querySelector('button[type="submit"]');
-if (mobileBook && bookingSubmit && 'IntersectionObserver' in window) {
-  const bookingObserver = new IntersectionObserver(([entry]) => {
-    mobileBook.classList.toggle('is-hidden', entry.isIntersecting);
-  }, { threshold: 0.15 });
-  bookingObserver.observe(bookingSubmit);
+if (mobileBook && bookingSubmit) {
+  const syncMobileBook = () => {
+    const bounds = bookingSubmit.getBoundingClientRect();
+    mobileBook.classList.toggle('is-hidden', bounds.bottom > 0 && bounds.top < window.innerHeight);
+  };
+  window.addEventListener('scroll', syncMobileBook, { passive: true });
+  window.addEventListener('resize', syncMobileBook);
+  syncMobileBook();
 }
 
 siteNav?.querySelectorAll('a').forEach((link) => {
