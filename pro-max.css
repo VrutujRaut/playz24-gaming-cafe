@@ -1,0 +1,24 @@
+@font-face{font-family:"Chakra Petch";src:url("assets/fonts/chakra-petch-400.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:"Chakra Petch";src:url("assets/fonts/chakra-petch-500.woff2") format("woff2");font-style:normal;font-weight:500;font-display:swap}
+@font-face{font-family:"Chakra Petch";src:url("assets/fonts/chakra-petch-600.woff2") format("woff2");font-style:normal;font-weight:600;font-display:swap}
+@font-face{font-family:"Chakra Petch";src:url("assets/fonts/chakra-petch-700.woff2") format("woff2");font-style:normal;font-weight:700;font-display:swap}
+@font-face{font-family:"Russo One";src:url("assets/fonts/russo-one-400.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap}
+:root{--font-display:"Russo One",Dangrek,sans-serif;--font-game:"Chakra Petch","Source Sans 3",sans-serif;--ink:#07101b;--surface:#0a1b2b;--surface-lit:#10283a;--cyan:#08e9f3;--yellow:#f8d808;--space-lg:24px;--space-xl:32px;--space-2xl:48px;--space-3xl:64px}
+body{font-size:16px;line-height:1.5}
+.site-header{position:sticky;top:0;background:rgba(5,12,22,.97);backdrop-filter:blur(12px)}
+.brand-word strong{font:400 30px/.95 var(--font-display);letter-spacing:0}
+.brand-word small{font-family:var(--font-game);font-weight:700;letter-spacing:.28em}
+.hero h1{font-family:var(--font-game);font-size:clamp(40px,5vw,72px);font-weight:700;letter-spacing:-.035em;line-height:.99;text-wrap:balance}
+.panel-heading h2,.experience-heading h2,.visit-inner h2,.gallery-heading h2,.reviews-heading h2,.happy-copy h2{font-family:var(--font-display);font-weight:400;letter-spacing:-.02em}
+.panel{background:linear-gradient(152deg,rgba(7,24,39,.98),rgba(3,11,22,.97));border-radius:14px;box-shadow:0 18px 48px rgba(0,0,0,.38),inset 0 1px rgba(255,255,255,.05)}
+.button,.site-nav a,.text-link,.gallery-heading>a,.review-link,.visit-aside>a,.experience-item>a{cursor:pointer}
+.button-yellow{min-height:48px;box-shadow:0 5px 18px rgba(248,216,8,.14)}
+.site-nav a{min-height:44px}
+.photo-gallery figure{overflow:hidden;border-radius:12px}
+.photo-gallery img{transition:transform .35s cubic-bezier(.2,.8,.2,1),filter .35s ease}
+.photo-gallery figure:hover img{transform:scale(1.035);filter:saturate(1.12)}
+.experience-item,.review-quotes figure{animation:pro-reveal .45s both;animation-timing-function:cubic-bezier(.2,.8,.2,1)}
+.experience-item:nth-child(2),.review-quotes figure:nth-child(2){animation-delay:.06s}.experience-item:nth-child(3),.review-quotes figure:nth-child(3){animation-delay:.12s}
+@keyframes pro-reveal{from{opacity:.6;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:760px){.site-header{backdrop-filter:none}.brand-word strong{font-size:23px}.hero h1{font-size:clamp(38px,9.3vw,54px);line-height:1.02}.panel{border-radius:13px}.button{min-height:50px}.site-nav a{min-height:44px;font-size:16px}.happy-copy h2{font-size:20px}.experience-item{min-height:72px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.experience-item,.review-quotes figure{animation:none}.photo-gallery img{transition:none}}
