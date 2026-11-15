@@ -79,7 +79,9 @@ if (mobileBook && bookingSubmit) {
   };
   window.addEventListener('scroll', syncMobileBook, { passive: true });
   window.addEventListener('resize', syncMobileBook);
+  window.addEventListener('pageshow', () => window.requestAnimationFrame(syncMobileBook));
   syncMobileBook();
+  window.requestAnimationFrame(syncMobileBook);
 }
 
 siteNav?.querySelectorAll('a').forEach((link) => {
