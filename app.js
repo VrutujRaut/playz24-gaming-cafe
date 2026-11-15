@@ -10,6 +10,17 @@ if (bookingDate) {
   bookingDate.min = localToday;
 }
 
+const timeSelect = document.querySelector('#time');
+if (timeSelect) {
+  for (let minutes = 10 * 60; minutes <= 21 * 60 + 30; minutes += 30) {
+    const hour = Math.floor(minutes / 60);
+    const minute = minutes % 60;
+    const value = `${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}`;
+    const label = new Intl.DateTimeFormat('en-IN', { hour: 'numeric', minute: '2-digit' }).format(new Date(2000, 0, 1, hour, minute));
+    timeSelect.add(new Option(label, value));
+  }
+}
+
 bookingForm?.addEventListener('submit', (event) => {
   event.preventDefault();
   if (!bookingForm.reportValidity()) return;

@@ -1,0 +1,10 @@
+.gallery-section,.reviews-section{background:#081522;border-block:1px solid rgba(8,233,243,.28)}
+.gallery-inner,.reviews-inner{max-width:1120px;margin:auto;padding:62px 24px}
+.gallery-heading,.reviews-heading{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:22px}
+.gallery-heading h2,.reviews-heading h2{margin:0;font:400 clamp(34px,4.5vw,52px)/1 var(--font-display);text-transform:uppercase}
+.gallery-heading>a,.review-link{color:var(--yellow);font-weight:700;text-decoration:underline;text-underline-offset:4px}
+.photo-gallery{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:14px}
+.photo-gallery figure{margin:0;min-width:0}.photo-gallery img{display:block;width:100%;height:clamp(190px,28vw,330px);object-fit:cover;border-radius:12px;background:#0a1a28}.photo-gallery figcaption{margin-top:8px;color:#e5edf3;font-weight:600}.photo-credit,.review-updated{display:block;margin:12px 0 0;color:#b8c9d5;font-size:13px}
+.rating-summary{display:grid;grid-template-columns:auto auto;align-items:center;column-gap:10px}.rating-summary>strong{grid-row:span 2;font-size:42px;line-height:1}.rating-summary .stars{color:var(--yellow);font-size:18px;letter-spacing:2px}.rating-summary small{color:var(--muted)}
+.review-quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}.review-quotes figure{margin:0;padding:14px 0;border-top:1px solid rgba(8,233,243,.5)}.review-stars{color:var(--yellow);letter-spacing:2px}.review-quotes blockquote{margin:10px 0;font-size:18px;line-height:1.45}.review-quotes figcaption{color:var(--muted);font-size:14px}.review-updated{margin-top:9px}
+@media(max-width:760px){.gallery-inner,.reviews-inner{padding:48px 20px}.gallery-heading,.reviews-heading{align-items:start;flex-direction:column;gap:16px}.photo-gallery{grid-template-columns:1fr;gap:18px}.photo-gallery img{height:auto;max-height:390px;aspect-ratio:1.35;object-position:center 40%}.review-quotes{grid-template-columns:1fr;gap:10px}.review-quotes figure{padding:16px 0}.review-quotes blockquote{font-size:17px}.rating-summary>strong{font-size:36px}.rate-table{font-size:16px!important}}
