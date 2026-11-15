@@ -6,6 +6,7 @@ const siteNav = document.querySelector('#site-nav');
 const setupSelect = document.querySelector('#setup');
 const durationField = document.querySelector('#duration-field');
 const durationSelect = document.querySelector('#duration');
+const mobileBook = document.querySelector('.mobile-book');
 
 function syncSessionDuration() {
   const isPool = setupSelect?.value === 'Pool table';
@@ -64,6 +65,14 @@ navToggle?.addEventListener('click', () => {
   navToggle.setAttribute('aria-expanded', String(!isOpen));
   siteNav?.classList.toggle('open', !isOpen);
 });
+
+const bookingSubmit = bookingForm?.querySelector('button[type="submit"]');
+if (mobileBook && bookingSubmit && 'IntersectionObserver' in window) {
+  const bookingObserver = new IntersectionObserver(([entry]) => {
+    mobileBook.classList.toggle('is-hidden', entry.isIntersecting);
+  }, { threshold: 0.15 });
+  bookingObserver.observe(bookingSubmit);
+}
 
 siteNav?.querySelectorAll('a').forEach((link) => {
   link.addEventListener('click', () => {
