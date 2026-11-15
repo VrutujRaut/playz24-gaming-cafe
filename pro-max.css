@@ -15,6 +15,8 @@ body{font-size:16px;line-height:1.5}
 .button-yellow{min-height:48px;box-shadow:0 5px 18px rgba(248,216,8,.14)}
 .site-nav a{min-height:44px}
 .photo-gallery figure{overflow:hidden;border-radius:12px}
+.hero-art{object-position:center 56%}
+.hero-shade{background:linear-gradient(180deg,rgba(4,10,20,.68) 0%,rgba(4,10,18,.78) 23%,rgba(4,10,18,.87) 67%,rgba(4,10,18,.66) 100%)}
 .photo-gallery img{transition:transform .35s cubic-bezier(.2,.8,.2,1),filter .35s ease}
 .photo-gallery figure:hover img{transform:scale(1.035);filter:saturate(1.12)}
 .experience-item,.review-quotes figure{animation:pro-reveal .45s both;animation-timing-function:cubic-bezier(.2,.8,.2,1)}

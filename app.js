@@ -3,6 +3,21 @@ const bookingDate = document.querySelector('#date');
 const bookingStatus = document.querySelector('#form-status');
 const navToggle = document.querySelector('.menu-toggle');
 const siteNav = document.querySelector('#site-nav');
+const setupSelect = document.querySelector('#setup');
+const durationField = document.querySelector('#duration-field');
+const durationSelect = document.querySelector('#duration');
+
+function syncSessionDuration() {
+  const isPool = setupSelect?.value === 'Pool table';
+  if (durationField) durationField.hidden = isPool;
+  if (durationSelect) {
+    durationSelect.required = !isPool;
+    if (isPool) durationSelect.value = '';
+  }
+}
+
+setupSelect?.addEventListener('change', syncSessionDuration);
+syncSessionDuration();
 
 if (bookingDate) {
   const today = new Date();
@@ -35,6 +50,7 @@ bookingForm?.addEventListener('submit', (event) => {
     `Setup: ${data.get('setup')}`,
     `Preferred day: ${formattedDate}`,
     `Preferred time: ${data.get('time')}`,
+    `Session length: ${data.get('setup') === 'Pool table' ? 'Per set' : data.get('duration')}`,
     `Players: ${data.get('players')}`,
     'Could you please confirm availability and the current rate?'
   ].join('\n');
